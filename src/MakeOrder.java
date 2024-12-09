@@ -1,10 +1,10 @@
 public class MakeOrder {
-    String name;
-    int quantity;
+    private String name;
+    private double totalPrice;
 
-    public MakeOrder(String name, int quantity) {
+    public MakeOrder(String name, double totalPrice) {
         this.name = name;
-        this.quantity = quantity;
+        this.totalPrice = totalPrice;
     }
 
     public String getName() {
@@ -15,15 +15,15 @@ public class MakeOrder {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public void showAllOrders(){
-        System.out.printf("Name: %s\n Quantity: %s\n",name,quantity);
+    public void showAllOrders() {
+        System.out.printf("\nName: %s\nTotal Price: %.2f\n", name, totalPrice);
     }
 }

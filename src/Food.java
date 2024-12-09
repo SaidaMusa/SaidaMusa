@@ -1,14 +1,24 @@
 public class Food {
-    String countryOfFood;
-    String nameOfFood;
-    double priceOfFood;
-    int quantity;
+    private int id;
+    private String countryOfFood;
+    private String nameOfFood;
+    private double priceOfFood;
+    private int quantity;
 
-    public Food(String countryOfFood, String nameOfFood, double priceOfFood, int quantity) {
+    public Food(int id, String countryOfFood, String nameOfFood, double priceOfFood, int quantity) {
+        this.id = id;
         this.countryOfFood = countryOfFood;
         this.nameOfFood = nameOfFood;
         this.priceOfFood = priceOfFood;
         this.quantity = quantity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCountryOfFood() {
@@ -32,7 +42,12 @@ public class Food {
     }
 
     public void setPriceOfFood(double priceOfFood) {
-        this.priceOfFood = priceOfFood;
+        if (priceOfFood < 0) {
+            System.out.println("Price cannot be negative. Setting to 0.");
+            this.priceOfFood = 0;
+        } else {
+            this.priceOfFood = priceOfFood;
+        }
     }
 
     public int getQuantity() {
@@ -40,16 +55,21 @@ public class Food {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        if (quantity < 0) {
+            System.out.println("Quantity cannot be negative. Setting to 0.");
+            this.quantity = 0;
+        } else {
+            this.quantity = quantity;
+        }
     }
 
-
-    public void updateFood(String name,double price){
-       this.nameOfFood=name;
-       this.priceOfFood=price;
+    public void updateFood(String name, double price) {
+        this.nameOfFood = name;
+        this.priceOfFood = price;
     }
 
-    public  void showAllFoodData(){
-        System.out.println("Country: "+countryOfFood+"\n"+"Name: "+nameOfFood+"\n"+"Price: "+priceOfFood+"sum"+"\n"+"Quantity: "+quantity);
+    public void showFoodData() {
+        System.out.printf("\nID: %d\nCountry: %s\nName: %s\nPrice: %.2f\nQuantity: %d\n",
+                id, countryOfFood, nameOfFood, priceOfFood, quantity);
     }
 }
